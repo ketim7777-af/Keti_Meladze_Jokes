@@ -12,7 +12,7 @@ categories = {
     "6": "Christmas"
 }
 
-
+# მეთიოდი იძახებს და ბეჭდავს ხუმრობებს
 def show_jokes(jokes):
     if not jokes:
         print("\nNo jokes found.")
@@ -23,10 +23,11 @@ def show_jokes(jokes):
         print(joke.display_info())
         print("--------------------")
 
-
+# მეთოდი – აბრუნებს ხუმრობის კატეგორიას.
 def choose_category():
     while True:
         print("\nChoose a category from 1 to 6: ")
+        print("--" *15)
 
         for number, category in categories.items():
             print(f"{number}. {category}")
@@ -40,7 +41,7 @@ def choose_category():
         else:
             print("Invalid choice. Please choose a number from 1 to 6.")
 
-
+# აბრუნებს ხუმრობის რაოდენობას, რაც უნდა მივიღოთ.
 def get_joke_count():
     while True:
         try:
@@ -55,7 +56,7 @@ def get_joke_count():
 
         return count
 
-
+# მეთოდი – აბრუნებს ხუმრობის ტექსტს.
 def get_search_text():
     while True:
         search_text = input("Enter a word to search for: ").strip()
@@ -65,7 +66,7 @@ def get_search_text():
 
         print("Search text cannot be empty. Please try again.")
 
-
+# მეთოდი – აბრუნებს ხუმრობის ნომერს, რომლითაც უნდა წავშალოთ.
 def get_delete_number(joke_count):
     while True:
         try:
@@ -80,12 +81,15 @@ def get_delete_number(joke_count):
 
         return number
 
-
+# შეიქმნება ასინქრონული მეთოდი – მენიუს მეთოდების გამოძახებისთვის.
+# იქმნება კლასის ობიექტი.
 async def main():
     manager = JokeManager()
 
     while True:
-        print("\n=== Joke Collector ===")
+        print("––" * 15)
+        print("Joke Collector")
+        print("==" * 15)
         print("1. Get new jokes")
         print("2. View joke history")
         print("3. Filter jokes by category")
@@ -134,6 +138,6 @@ async def main():
         else:
             print("Invalid choice. Please choose a number from 1 to 6.")
 
-
+# ეშვება ასინქრონული მეინ ფუნქცია.
 if __name__ == "__main__":
     asyncio.run(main())

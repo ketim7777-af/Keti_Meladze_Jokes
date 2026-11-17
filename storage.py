@@ -5,16 +5,17 @@ from pydantic import ValidationError
 
 from models import Joke
 
-
+# შევქმენი კლასი, რომელსაც პარამეტრად ფაილის სახელი გადავეცი, უკვე განსაზღვრული სახელით.
 class JsonStorage:
     def __init__(self, filename="jokes.json"):
         self._filename = filename
 
+    # ეს მეთოდი ჯეისონიდან კითხულობს მონაცმებს და თან ამოწმებს ერორებს.
     def load_jokes(self):
         try:
             with open(self._filename, "r", encoding="utf-8") as file:
                 jokes_data = json.load(file)
-
+        
         except FileNotFoundError:
             return []
 
@@ -26,6 +27,8 @@ class JsonStorage:
             logging.error("The jokes file must contain a list.")
             return []
 
+        # ჯერ ვქმნით ცარიელს ლისტს და შემდეგ იწერება მასში ჯეისონიდან მონაცემები.
+        # ამოწმებს, რამდენად აქვს ის პარამეტრები, რაც გადავეცით Joke კლასს.
         jokes = []
 
         for joke_data in jokes_data:
@@ -37,6 +40,7 @@ class JsonStorage:
 
         return jokes
 
+    # ინახავს ხუმრობების ახალ ლისტს ჯეისონში.
     def save_jokes(self, jokes):
         jokes_data = [joke.model_dump() for joke in jokes]
 

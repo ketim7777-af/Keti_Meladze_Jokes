@@ -143,5 +143,20 @@
         "category": "Programming",
         "type": "single",
         "joke": "Being a self-taught developer is almost the same as being a cut neck chicken because you have no sense of direction in the beginning."
+    },
+    {
+        "category": "Pun",
+        "type": "single",
+        "joke": "I was reading a great book about an immortal dog the other day. It was impossible to put down."
+    },
+    {
+        "category": "Pun",
+        "type": "single",
+        "joke": "Today, my son asked \"Can I have a book mark?\" and I burst into tears.\n11 years old and he still doesn't know my name is Brian."
+    },
+    {
+        "category": "Programming",
+        "type": "single",
+        "joke": "Saying that Java is nice because it works on every OS is like saying that anal sex is nice because it works on every gender."
     }
 ]
